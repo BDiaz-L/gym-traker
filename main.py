@@ -11,6 +11,7 @@ welcome_text = (
     'Bienvenido, ingresa una de las opciones:\n'
     ' 1) Registrar Entrenamiento\n'
     ' q) Salir\n'
+    'Opcion: '
 )
 
 while True:

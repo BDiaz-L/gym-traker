@@ -6,7 +6,7 @@ def input_date():
     month = input('Mes: ')
     year = input('Año: ')
     date = f'{day}-{month}-{year}'
-
+    # falta validar bien la fecha
     return date
     
 def input_name():
@@ -21,6 +21,7 @@ def input_name():
         '7) Dead Bug\n'
         '8) Superserie de brazo\n'
         '9) Pantorrilla\n'
+        'Opcion: '
     )
     menu = {
         '1': 'Press con mancuerna a baja inclinacion',
@@ -39,7 +40,7 @@ def input_name():
 
 def input_variant():
     text = (
-        'Es variante? Y/N '
+        'Es variante [y/n]? '
     )
     menu = {
         'y': True,
@@ -53,7 +54,7 @@ def input_series():
         'y': True,
         'n': False
     }
-    default_option = choose_menu('Fueron 3 series por default? y/n ', menu_default)
+    default_option = choose_menu('Fueron 3 series por default [y/n]? ', menu_default)
     if default_option:
         num_series = 3
     else:
@@ -61,7 +62,7 @@ def input_series():
 
     series  = []
 
-    for contador in range(1,num_series + 1):
+    for contador in range(1, num_series + 1):
 
         reps = input_int_number(f'Cuantas repeticiones hiciste en la serie {contador}? ')
         weight = input_float_number(f'Cuanto peso ? ')
