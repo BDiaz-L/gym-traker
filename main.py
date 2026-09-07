@@ -1,4 +1,3 @@
-
 import tracker
 
 def exit_program():
