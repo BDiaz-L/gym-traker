@@ -4,13 +4,15 @@ def exit_program():
     print('Saliendo...') 
 
 options = {
-    '1': tracker.training_register
+    '1': tracker.training_register,
+    'd': tracker.dummy_training
 }
 
 welcome_text = (
     'Bienvenido, ingresa una de las opciones:\n'
     ' 1) Registrar Entrenamiento\n'
     ' q) Salir\n'
+    ' d) Dummy training\n'
     'Opcion: '
 )
 

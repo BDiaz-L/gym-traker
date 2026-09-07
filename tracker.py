@@ -1,5 +1,6 @@
 
 from datetime import date
+import storage
 
 def input_date():
     while True:
@@ -14,8 +15,6 @@ def input_date():
         except ValueError:
             print('Agrega una fecha valida')
 
-
-        
     
 def input_name():
     text = (
@@ -121,5 +120,19 @@ def training_register():
         'series': input_series(),
         'notes': input('Alguna nota?: ')
     }
-
     print(f'Entrenamiento registrado: {training}')
+
+
+def dummy_training():
+    print('Aqui registramos entrenamiento falso')
+    training = {
+        'register_date': date.today(),
+        'date': date.today(),
+        'exercise': 'Sentadilla Goblet',
+        'variant': True,
+        'series': [],
+        'notes': 'Soy una nota prueba'
+    }
+    
+    print(f'Entrenamiento registrado: {training}')
+    storage.save_training(training)
