@@ -1,13 +1,21 @@
 
-
+from datetime import date
 
 def input_date():
-    day = input('Dia de entrenamiento: ')
-    month = input('Mes: ')
-    year = input('Año: ')
-    date = f'{day}-{month}-{year}'
-    # falta validar bien la fecha
-    return date
+    while True:
+        day = input_int_number('Dia de entrenamiento: ')
+        month = input_int_number('Mes: ')
+        year = input_int_number('Año: ')
+        try:
+            training_date  = date(year,month,day)
+            if training_date <= date.today():
+                return training_date
+            print('No puedes registrar fecha futura')
+        except ValueError:
+            print('Agrega una fecha valida')
+
+
+        
     
 def input_name():
     text = (
@@ -106,9 +114,10 @@ def input_float_number(text):
 def training_register():
     print('Aqui registramos entrenamiento')
     training = {
+        'register_date': date.today(),
         'date': input_date(),
         'exercise': input_name(),
-        'variante': input_variant(),
+        'variant': input_variant(),
         'series': input_series(),
         'notes': input('Alguna nota?: ')
     }
