@@ -1,5 +1,5 @@
 import csv
-
+import os 
 FILE_PATH = './data/entrenamientos.csv'
 """
     training = {
@@ -11,12 +11,17 @@ FILE_PATH = './data/entrenamientos.csv'
         'notes': input('Alguna nota?: ')
     }
 """
+fieldnames = ['register_date','date','exercise','variant','# Serie','reps','weight_kg','notes']
+
+if not os.path.exists(FILE_PATH) or os.path.getsize(FILE_PATH) == 0:
+    with open(FILE_PATH, 'w', newline='') as file:
+        writer = csv.DictWriter(file, fieldnames=fieldnames)
+        writer.writeheader()
+
 def save_training(training):
 
     with open(FILE_PATH, 'a', newline='') as file:
-        fieldnames = ['register_date','date','exercise','variant','# Serie','reps','weight_kg','notes']
         writer = csv.DictWriter(file, fieldnames=fieldnames)
-        writer.writeheader()
         for index, serie in enumerate(training['series'], start=1):
             row = {}
             row['register_date'] = training['register_date']
@@ -27,7 +32,6 @@ def save_training(training):
             row['reps'] = serie['reps']
             row['weight_kg'] = serie['weight_kg']
             row['notes'] = training['notes']
-            print('row:',row)
             writer.writerow(row)
 
 
@@ -35,6 +39,11 @@ def get_trainings():
     trainings = []
     with open(FILE_PATH, 'r', encoding='utf-8') as file:
         reader = csv.DictReader(file)
-        for row in reader:
+        rows = list(reader)
+
+        if not rows:
+            print('No hay registros')
+
+        for row in rows:
             trainings.append(row)
         return trainings
