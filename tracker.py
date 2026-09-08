@@ -130,9 +130,25 @@ def dummy_training():
         'date': date.today(),
         'exercise': 'Sentadilla Goblet',
         'variant': True,
-        'series': [],
+        'series': [
+            {'reps': 10, 'weight_kg': 20},
+            {'reps': 8, 'weight_kg': 20},
+            {'reps': 10, 'weight_kg': 20}
+        ],
         'notes': 'Soy una nota prueba'
     }
     
     print(f'Entrenamiento registrado: {training}')
     storage.save_training(training)
+
+def show_trainings():
+    trainings = storage.get_trainings()
+    for index,training in enumerate(trainings, start=1):
+        print(
+            f'Registro: {index}\n'
+            f'Ejercicio: {training[2]}\n'
+            f'Serie: {training[4]}\n'
+            f'Reps: {training[5]}\n'
+            f'Peso: {training[6]}\n'
+            f'Dia: {training[1]}\n'
+        )
