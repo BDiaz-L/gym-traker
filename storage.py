@@ -14,25 +14,27 @@ FILE_PATH = './data/entrenamientos.csv'
 def save_training(training):
 
     with open(FILE_PATH, 'a', newline='') as file:
-        writer = csv.writer(file)
+        fieldnames = ['register_date','date','exercise','variant','# Serie','reps','weight_kg','notes']
+        writer = csv.DictWriter(file, fieldnames=fieldnames)
+        writer.writeheader()
         for index, serie in enumerate(training['series'], start=1):
-            row = []
-            row.append(training['register_date'])
-            row.append(training['date'])
-            row.append(training['exercise'])
-            row.append(training['variant'])
-            row.append(index)
-            row.append(serie['reps'])
-            row.append(serie['weight_kg'])
-            row.append(training['notes'])
+            row = {}
+            row['register_date'] = training['register_date']
+            row['date'] = training['date']
+            row['exercise'] = training['exercise']
+            row['variant'] = training['variant']
+            row['# Serie'] = index
+            row['reps'] = serie['reps']
+            row['weight_kg'] = serie['weight_kg']
+            row['notes'] = training['notes']
             print('row:',row)
             writer.writerow(row)
 
 
 def get_trainings():
     trainings = []
-    with open(FILE_PATH, 'r', newline='') as file:
-        reader = csv.reader(file)
+    with open(FILE_PATH, 'r', encoding='utf-8') as file:
+        reader = csv.DictReader(file)
         for row in reader:
             trainings.append(row)
         return trainings

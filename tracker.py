@@ -144,11 +144,12 @@ def dummy_training():
 def show_trainings():
     trainings = storage.get_trainings()
     for index,training in enumerate(trainings, start=1):
-        print(
+        print(training)
+        """print(
             f'Registro: {index}\n'
             f'Ejercicio: {training[2]}\n'
             f'Serie: {training[4]}\n'
             f'Reps: {training[5]}\n'
             f'Peso: {training[6]}\n'
             f'Dia: {training[1]}\n'
-        )
+        )"""
