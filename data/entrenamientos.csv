@@ -1,7 +1,7 @@
 register_date,date,exercise,variant,# Serie,reps,weight_kg,notes
-2026-09-08,2026-09-08,Sentadilla Goblet,True,1,10,20,Soy una nota prueba
-2026-09-08,2026-09-08,Sentadilla Goblet,True,2,8,20,Soy una nota prueba
-2026-09-08,2026-09-08,Sentadilla Goblet,True,3,10,20,Soy una nota prueba
-2026-09-09,2026-09-09,Press con mancuerna a baja inclinacion,False,1,10,5.5,primer entrenamiento
-2026-09-09,2026-09-09,Press con mancuerna a baja inclinacion,False,2,10,5.5,primer entrenamiento
-2026-09-09,2026-09-09,Press con mancuerna a baja inclinacion,False,3,10,5.5,primer entrenamiento
+2026-09-09,2026-09-09,Press con mancuerna a baja inclinacion,True,1,10,5.0,maquina de pecho
+2026-09-09,2026-09-09,Press con mancuerna a baja inclinacion,True,2,10,5.0,maquina de pecho
+2026-09-09,2026-09-09,Press con mancuerna a baja inclinacion,True,3,10,5.0,maquina de pecho
+2026-09-09,2026-09-09,Dominadas con agarre neutro,False,1,5,50.0,me dolio mis brazos
+2026-09-09,2026-09-09,Dominadas con agarre neutro,False,2,5,50.0,me dolio mis brazos
+2026-09-09,2026-09-09,Dominadas con agarre neutro,False,3,5,50.0,me dolio mis brazos

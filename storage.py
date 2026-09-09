@@ -39,8 +39,4 @@ def get_trainings():
     with open(FILE_PATH, 'r', encoding='utf-8') as file:
         reader = csv.DictReader(file)
         rows = list(reader)
-
-        if not rows:
-            print('No hay registros')
-
         return rows

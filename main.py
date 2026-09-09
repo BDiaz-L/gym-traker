@@ -12,14 +12,14 @@ options = {
 welcome_text = (
     'Bienvenido, ingresa una de las opciones:\n'
     ' 1) Registrar Entrenamiento\n'
-    ' 2) Obtener Entrenamientos\n'
+    ' 2) Ver Entrenamientos\n'
     ' q) Salir\n'
-    ' d) Dummy training\n'
+    #' d) Dummy training\n'
     'Opcion: '
 )
 
 while True:
-    option = input(welcome_text)
+    option = input(welcome_text).strip().lower()
     if option == 'q':
         exit_program()
         break;

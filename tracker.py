@@ -144,12 +144,59 @@ def dummy_training():
 
 def show_trainings():
     trainings = storage.get_trainings()
-    for index,training in enumerate(trainings, start=1):
+    if trainings:
+        exercise = create_empty_exercise()
+        for training in trainings:
+            if exercise['exercise'] == training['exercise'] and exercise['date'] == training['date']:
+                exercise['series'].append(new_serie(training))
+            else:
+                if exercise['series'] :
+                    print_exercise(exercise)
+                exercise = create_empty_exercise()
+                exercise['register_date'] = training['register_date']
+                exercise['date'] = training['date']
+                exercise['exercise'] = training['exercise']
+                exercise['variant'] = training['variant']
+                exercise['series'].append(new_serie(training))
+                exercise['notes'] = training['notes']
+        print_exercise(exercise)
+    else:
+        print('Aun no hay registros de entrenamiento')
+
+def create_empty_exercise():
+    return {
+        'register_date': '',
+        'date': '',
+        'exercise':'',
+        'variant': '',
+        'series': [],
+        'notes': ''
+    }
+
+def new_serie(training):
+    return {
+        '# Serie': training['# Serie'],
+        'Reps': training['reps'],
+        'weight_kg': training['weight_kg'],
+
+    } 
+
+def print_exercise(exercise):
+
+    print(
+        f"\nEjercicio: {exercise['exercise']}\n"
+        f"Fecha: {exercise['date']}\n"
+        f"Variante: {exercise['variant']}\n"
+    )
+
+    for serie in exercise['series']:
         print(
-            f'Registro: {index}\n'
-            f'Ejercicio: {training['exercise']}\n'
-            f'Serie: {training['# Serie']}\n'
-            f'Reps: {training['reps']}\n'
-            f'Peso: {training['weight_kg']}\n'
-            f'Dia: {training['date']}\n'
+            f"Serie {serie['# Serie']}: "
+            f"{serie['Reps']} reps - "
+            f"{serie['weight_kg']} kg"
         )
+
+    if exercise['notes']:
+        print(f"Notas: {exercise['notes']}")
+
+    print('-' * 30)
