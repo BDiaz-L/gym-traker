@@ -36,7 +36,6 @@ def save_training(training):
 
 
 def get_trainings():
-    trainings = []
     with open(FILE_PATH, 'r', encoding='utf-8') as file:
         reader = csv.DictReader(file)
         rows = list(reader)
@@ -44,6 +43,4 @@ def get_trainings():
         if not rows:
             print('No hay registros')
 
-        for row in rows:
-            trainings.append(row)
-        return trainings
+        return rows

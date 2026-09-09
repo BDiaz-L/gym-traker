@@ -120,6 +120,7 @@ def training_register():
         'series': input_series(),
         'notes': input('Alguna nota?: ')
     }
+    storage.save_training(training)
     print(f'Entrenamiento registrado: {training}')
 
 
